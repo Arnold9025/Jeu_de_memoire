@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes timerMove {
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        right: 500px;
+
+    }
+}
+
+@keyframes scoreMove {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 400px;
+    }
+}
+
+@keyframes gameMove {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+
+    }
+}
+
+@keyframes bodyMove {
+    0% {
+        flex-direction: column;
+    }
+
+    100% {
+        flex-direction: row;
+    }
+}
+
+@font-face {
+    font-family: 'ds-dgnormal';
+    src: url('../fonts/ds/dsDigiDemo.eot');
+    src: url('../fonts/ds/dsDigiDemo.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ds/dsDigiDemo.woff') format('woff'),
+        url('../fonts/ds/dsDigiDemo.svg#ds-digitalnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/monst/MontserratRegular.eot');
+    src: url('../fonts/monst/MontserratRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/monst/MontserratRegular.woff') format('woff'),
+        url('../fonts/MontserratRegular.ttf') format('truetype'),
+        url('../fonts/monst/MontserratRegular.svg#Sri-TSCRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-color: rgb(41, 44, 44);
+}
+
+header {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.363);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+main {
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    transition: flex-direction 10s ease-in-out; */
+
+}
+
+form {
+    margin-top: 25px;
+}
+
+aside form div {
+    margin-top: 5px;
+    text-align: center;
+}
+
+aside form select {
+    background-color: rgb(41, 44, 44);
+    color: white;
+    padding: 10px;
+    width: 90vw;
+    text-align: center;
+}
+
+#output div img {
+    max-width: 40px;
+}
+
+#output, #game {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin: auto;
+}
+
+.showCard {
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.171);
+}
+
+#game {
+    width: 90vw;
+    height: 400px;
+    color: white;
+    margin: 20px auto;
+}
+
+.flip-card {
+    background-color: transparent;
+    height: 110px;
+    width: 80px;
+
+    /* donne une perspective 3D à la carte */
+}
+
+/* définit la hauteur et la largeur de la carte */
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+/* retourne la carte lorsqu'elle est cliquée */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+
+}
+
+/* définit la face avant de la carte */
+.flip-card-back, .flip-card-front {
+    width: 100%;
+    height: 100%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.171);
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 5px;
+
+}
+
+/* définit l'image de fond de la face arrière de la carte */
+.flip-card-back {
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+}
+
+/* définit l'image de fond de la face avant de la carte */
+.flip-card-front {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+
+}
+
+
+
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+#timer {
+    color: white;
+    font-size: 40px;
+    background-color: rgb(41, 44, 44);
+    font-family: 'ds-dgnormal';
+    width: 30%;
+    transition: width 2s ease-in-out;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.363);
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 20px 0px 20px 0px;
+    position: relative;
+}
+
+#score {
+    background-color: white;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#buttonRestart {
+    background-color: rgb(41, 44, 44);
+    width: 20%;
+    margin: auto;
+    border: 1px solid white;
+    padding: 10px;
+    font-family: 'Montserrat';
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.timerset:not(:nth-child(2)) {
+    text-align: center;
+    display: inline block;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    background-color: rgb(41, 44, 44);
+    color: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.363);
+    border-radius: 2px;
+
+}
+
+.timerset:nth-child(2) {
+    text-align: center;
+}
+
+/*
+.flip-card-inner.flipped .flip-card-front {
+    transform: rotateY(-180deg);
+}
+
+.flip-card-inner.flipped .flip-card-back {
+    transform: rotateY(0deg);
+} */
+#endGame {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: none;
+}
+
+.point {
+    position: absolute;
+    bottom: 5px;
+
+}
+
+#stopPanel {
+    font-family: 'Monsterrat';
+    color: white;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+@media only screen and (min-width:768px) {
+    #game {
+        width: 90vw;
+    }
+
+    #timer {
+        width: 200px;
+        transition: width 2s ease-in-out;
+
+    }
+
+    aside form select {
+        width: 500px;
+        transition: width ease-in-out 2s;
+    }
+
+    #score {}
+
+}
+
+@media only screen and (min-width:1280px) {
+
+    #game {
+        width: 50%;
+
+    }
+
+
+
+
+
+    #score {
+        animation-name: scoreMove;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        margin: 10px auto;
+        width: 400px;
+    }
+}

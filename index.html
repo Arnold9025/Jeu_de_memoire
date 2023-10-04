@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/memoire.css">
+    <script src="js/memoire.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='endGame'></div>
+    <header>
+        <h1>Jeu de Memoire</h1>
+    </header>
+    <main>
+        <aside>
+            <div id="output"></div>
+            <form action="">
+                <div>
+                    <select name="imageOption" id="imageOption">
+                        <option value="-">Selectionner un theme</option>
+                        <option value="cars">cars</option>
+                        <option value="houses">houses</option>
+                        <option value="motos">motos</option>
+                        <option value="univers">univers</option>
+
+                    </select>
+                </div>
+                <div>
+
+                    <select name="difficultyOption" id="difficultyOption">
+                        <option value="-">Selectionner un nombre d'image</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="12">12</option>
+
+                    </select>
+                </div>
+                <!-- <div>
+                    <input type="submit" value="Go">
+                </div> -->
+
+
+            </form>
+        </aside>
+        <aside>
+            <div id="timer">
+                <div class="timerset"></div>
+                <div class="timerset"></div>
+                <div class="timerset"></div>
+
+            </div>
+            <div id="score">
+                <div id="scoreActuel"></div>
+                <div id="meilleurScore"></div>
+
+            </div>
+            <div id="stopPanel"></div>
+        </aside>
+        <div id="game">
+            <h3>Press to start</h3>
+        </div>
+        <aside>
+
+        </aside>
+    </main>
+    <footer></footer>
+
+    <script>
+        Memoire.init()
+    </script>
+</body>
+
+</html>
